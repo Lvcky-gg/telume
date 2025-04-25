@@ -1,0 +1,37 @@
+{
+  "name": "telume",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@arcgis/core": "^4.32.10",
+    "@babylonjs/core": "^8.4.0",
+    "@babylonjs/loaders": "^8.4.0",
+    "@tauri-apps/api": "^1.6.0",
+    "@turf/turf": "^7.2.0",
+    "@turf/union": "^7.2.0",
+    "axios": "^1.9.0",
+    "jszip": "^3.10.1",
+    "pinia": "^3.0.2",
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.3.3",
+    "sass": "^1.87.0",
+    "three": "^0.176.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.3",
+    "vue-router": "^4.1.3",
+    "vue-tsc": "^2.1.10"
+  }
+}
