@@ -1,13 +1,13 @@
 <template>
     <div class="header-container">
-<Avatar class="p-overlay-badge" :image="elessarImg" size="small" />
+<!-- <Avatar class="p-overlay-badge" :image="elessarImg" size="small" /> -->
 
     </div>
 
 </template>
 
 <script setup lang="ts">
-import Avatar from 'primevue/avatar';
+// import Avatar from 'primevue/avatar';
 import elessarImg from '../assets/imgs/Elessar.png';
 </script>
 <style scoped>
