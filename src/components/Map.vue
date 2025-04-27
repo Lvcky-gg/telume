@@ -40,13 +40,16 @@ onMounted(() => {
 #map {
     width: 80%;
     height: 100%;
+    left:5%;
     position: absolute;
-
+    top: 9%;
 }
 .tool-container {
     position: absolute;
-    width: 100%;
+    width: 80%;
     height: 100%;
+    left:5%;
+    top: 9%;
     pointer-events: none;
 }
 

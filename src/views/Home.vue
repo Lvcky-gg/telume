@@ -7,9 +7,9 @@
     </div> -->
   <div class="common-layout">
     <el-container>
-      <el-aside width="200px"></el-aside>
-      <el-main><map id="map-container"></map></el-main>
-      <el-aside width="200px"><top-header></top-header></el-aside>
+      <el-aside ><sidebar/></el-aside>
+      <el-main><div><map id="map-container"></map></div></el-main>
+      <el-aside ><top-header></top-header></el-aside>
     </el-container>
   </div>
 
