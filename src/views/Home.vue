@@ -24,15 +24,14 @@ body, html, #app {
 }
 
 #custom-sidebar {
-    width: calc(100vw - 95vw)!important;
+    width: 100%!important;
     height: calc(100vw - 5vw)!important;
     background-color: #0e0d0d;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
-    padding: 20px;
-    box-sizing: border-box;
+
 }
 
 #app-content {
@@ -44,7 +43,7 @@ body, html, #app {
 }
 
 #top-header {
-    height: calc(100vw - 95vw)!important;
+    height: calc(100vw - 98vw)!important;
     width: 100vw;
     background-color: #0e0d0d !important;
     position: fixed;
