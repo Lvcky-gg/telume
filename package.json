@@ -8,7 +8,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
-    "build:prod":"nix-shell && tauri dev"
+    "start:nix":"nix-shell -p xvfb-run",
+    "start:dev":"xvfb-run npm run tauri dev"
   },
   "dependencies": {
     "@arcgis/core": "^4.32.10",
