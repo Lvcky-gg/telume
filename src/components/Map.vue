@@ -46,10 +46,7 @@ onMounted(() => {
 }
 .tool-container {
     position: absolute;
-    width: 100%;
-    height: 90%;
-    left:0%;
-    top: 0%;
+    top: 8.5em;
     pointer-events: none;
 }
 

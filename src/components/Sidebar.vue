@@ -62,7 +62,10 @@
 
  .el-menu{
 
-   min-height: 80em;
+   min-height: 60em;
+   position: absolute;
+    top: 8.5em;
+    left:5em;
    background-color: black;
    border: none;
 
