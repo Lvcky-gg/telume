@@ -20,7 +20,8 @@ import TopHeader from '../components/TopHeader.vue';
 <style scoped>
 
   .top-header {
-    width: 100%;
+    width: 100vw;
+    height: 4vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -32,7 +33,7 @@ import TopHeader from '../components/TopHeader.vue';
     margin:.2em;
 }
 .sidebar {
-    width: 6em;
+    width: 5vw;
     background-color: #23272a ;
     border-radius: .4em;
     padding: 1em;
@@ -40,7 +41,7 @@ import TopHeader from '../components/TopHeader.vue';
     top: 5em;
     left: 0;
     margin:.2em;
-    height: 90vh;
+    height: 92vh;
 }
 
 
