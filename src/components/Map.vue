@@ -38,18 +38,18 @@ onMounted(() => {
 <style lang="css" scoped>
 
 #map {
-    width: 95%;
+    width: 90%;
     height: 90%;
-    left:5%;
+    left:10%;
     position: absolute;
-    top: 9%;
+    top: 10%;
 }
 .tool-container {
     position: absolute;
-    width: 95%;
+    width: 100%;
     height: 90%;
-    left:5%;
-    top: 9%;
+    left:0%;
+    top: 0%;
     pointer-events: none;
 }
 

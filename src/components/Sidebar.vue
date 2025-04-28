@@ -58,9 +58,16 @@
  }
  </script>
 
- <style>
- .el-menu-vertical-demo:not(.el-menu--collapse) {
-   width: 200px;
-   min-height: 400px;
+ <style lang="scss" scoped>
+
+ .el-menu{
+
+   min-height: 80em;
+   background-color: black;
+   border: none;
+
+ }
+ .el-icon{
+   color: white;
  }
  </style>
