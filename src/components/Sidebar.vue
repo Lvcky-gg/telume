@@ -9,7 +9,7 @@
    >
      <el-sub-menu index="1">
        <template #title>
-         <el-icon><tools /></el-icon>
+         <el-icon><plus /></el-icon>
          <span>Navigator One</span>
        </template>
        <el-menu-item-group>
@@ -45,6 +45,7 @@
  import {
    Menu as IconMenu,
    Tools,
+   Plus
  } from '@element-plus/icons-vue'
 
  const isCollapse = ref(true)
