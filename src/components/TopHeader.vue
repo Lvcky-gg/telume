@@ -1,7 +1,11 @@
 <template>
-  <el-page-header :icon="elessarImg">
 
-  </el-page-header>
+
+        <div class="header-logo">
+            <el-avatar :src="elessarImg" alt="Logo" />
+        </div>
+
+
 </template>
 
 
@@ -9,3 +13,16 @@
 // import Avatar from 'primevue/avatar';
 import elessarImg from '../assets/imgs/Elessar.png';
 </script>
+<style lang="scss" scoped>
+
+.header-logo img {
+    width: 50px;
+    height: 50px;
+}
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+</style>

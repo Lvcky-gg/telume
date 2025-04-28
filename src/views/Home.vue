@@ -1,17 +1,13 @@
 <template>
-    <!-- <top-header id="top-header"></top-header> -->
-    <!-- <sidebar id="custom-sidebar"/> -->
-    <!-- <div id="app-content">
-    <map id="map-container"></map>
 
-    </div> -->
-  <div class="common-layout">
+
+
+    <top-header class="top-header"></top-header>
     <el-container>
-      <el-aside ><sidebar/></el-aside>
+      <el-aside class="sidebar"><sidebar /></el-aside>
       <el-main><div><map id="map-container"></map></div></el-main>
-      <el-aside ><top-header></top-header></el-aside>
     </el-container>
-  </div>
+
 
 
 </template>
@@ -23,11 +19,30 @@ import TopHeader from '../components/TopHeader.vue';
 </script>
 <style scoped>
 
-body, html, #app {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  .top-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #23272a ;
+    border-radius: .4em;
+    padding: 1em;
+    position: absolute ;
+    top: 0;
+    margin:.2em;
 }
+.sidebar {
+    width: 6em;
+    background-color: #23272a ;
+    border-radius: .4em;
+    padding: 1em;
+    position: absolute ;
+    top: 5em;
+    left: 0;
+    margin:.2em;
+    height: 90vh;
+}
+
 
 
 
