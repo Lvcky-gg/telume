@@ -1,5 +1,10 @@
 <template>
+    <!-- <top-header id="top-header"></top-header> -->
+    <!-- <sidebar id="custom-sidebar"/> -->
+    <!-- <div id="app-content">
+    <map id="map-container"></map>
 
+    </div> -->
   <div class="common-layout">
     <el-container>
       <el-aside ><sidebar/></el-aside>
