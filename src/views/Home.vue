@@ -1,26 +1,27 @@
-<template>
-
-
-
-    <top-header class="top-header"></top-header>
-    <el-container>
-      <el-aside class="sidebar"><sidebar /></el-aside>
-      <el-main class="main">
-        <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/>
-      </el-main>
-    </el-container>
-    <!-- <chat-window class="chat"/> -->
-
-
-
-</template>
 <script setup>
+import { ref } from 'vue'
 import Map from '../components/Map.vue';
 import Sidebar from '../components/Sidebar.vue';
 import TopHeader from '../components/TopHeader.vue';
 import ChatWindow from "../components/ChatWindow.vue";
 
+const chatVisible = ref(false);
+const openChat = () => { chatVisible.value = true; };
+const closeChat = () => { chatVisible.value = false; };
 </script>
+
+<template>
+  <top-header class="top-header" @open-chat="openChat" />
+  <el-container>
+    <el-aside class="sidebar"><sidebar /></el-aside>
+    <el-main class="main">
+      <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/>
+    </el-main>
+  </el-container>
+  <el-dialog v-model="chatVisible" title="Chat" width="50%" @close="closeChat">
+    <ChatWindow />
+  </el-dialog>
+</template>
 <style scoped>
 .chat {
   height:10px;
@@ -41,7 +42,7 @@ import ChatWindow from "../components/ChatWindow.vue";
   }
   .top-header {
     width: 100vw;
-    height: 4vw;
+    height: 4vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,7 +51,7 @@ import ChatWindow from "../components/ChatWindow.vue";
     padding: 1em;
     position: absolute ;
     top: 0;
-    margin:.2em;
+    margin:.2vh;
 }
 .sidebar {
     width: 5vw;
@@ -58,10 +59,10 @@ import ChatWindow from "../components/ChatWindow.vue";
     border-radius: .4em;
     padding: 1em;
     position: absolute ;
-    top: 5em;
+    top: 4em;
     left: 0;
     margin:.2em;
-    height: 92vh;
+    height: 90vh;
 }
 
 

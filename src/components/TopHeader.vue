@@ -7,8 +7,10 @@
               <el-icon><download/></el-icon>
                <el-icon><compass/></el-icon>
                 <el-icon><document/></el-icon>
+                <el-icon @click="toggleChatVisible"><ChatDotRound/></el-icon>
             </div>
         </div>
+
 
 
 </template>
@@ -16,18 +18,22 @@
 
 <script setup lang="ts">
 // import Avatar from 'primevue/avatar';
+import { ref } from 'vue';
+import { defineEmits } from 'vue';
 import elessarImg from '../assets/imgs/Elessar.png';
  import {
 Download,
     Document,
     Setting,
-    Plus,
-    Tools,
+    ChatDotRound,
     Menu as IconMenu,
-    ArrowDown,
-    ArrowUp,
     Compass
  } from '@element-plus/icons-vue'
+ const emit = defineEmits(['open-chat']);
+
+const toggleChatVisible = () => {
+  emit('open-chat');
+};
 </script>
 <style lang="scss" scoped>
 
