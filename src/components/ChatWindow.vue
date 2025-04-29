@@ -1,5 +1,5 @@
 <template>
-    <button @click="getModels" style="margin-bottom: 20%;">Send</button>
+    <button @click="sendMessage" style="margin-bottom: 20%;">Send</button>
       <el-input
     v-model="message"
     style="width: 240px"
@@ -13,24 +13,39 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { invoke } from '@tauri-apps/api';
+import { inputEmits } from 'element-plus';
+import { ChatMessage } from '../types/message';
 const message = ref('');
-const models = ref('');
+const models = ref<string[]>([]);
 const responses = ref('');
-const sendMessage = async () => {
-    console.log('Message:', message.value);
+const sendMessage = async (e:any) => {
+    e.preventDefault();
+    if(!message.value.trim())
+        return;
     try {
-        const response = await invoke('chat', { message: message.value });
-        responses.value = response as string;
+        const userMessage : ChatMessage = {
+            role: 'user',
+            content: message.value,
+        };
+        const request = {
+            model: "llama3.2",
+            messages: [userMessage]
+        };
+        const response = await invoke('chat', { request });
         console.log('Response:', response);
+        responses.value = response as string;
+
     } catch (error) {
         console.error('Error:', error);
     }
 };
 const getModels = async () => {
     try {
-        const response = await invoke('get_models');
-        console.log(response)
-        models.value = response as string;
+        const response : string[] = await invoke('get_models');
+        if(response.length){
+            models.value = response;
+        }
+
     } catch (error) {
         console.error('Error:', error);
     }
