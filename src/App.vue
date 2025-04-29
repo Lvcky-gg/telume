@@ -1,13 +1,13 @@
 <script setup lang="ts">
 
-import Map from "./components/Map.vue";
 </script>
 
 <template>
 <router-view/>
   <div id="app">
-    <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/>
+    <!-- <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/> -->
   </div>
+
 </template>
 
 <style>
@@ -19,6 +19,7 @@ import Map from "./components/Map.vue";
   color: #2c3e50;
   margin-top: 60px;
 }
+
 img {
   margin: 5px;
 }

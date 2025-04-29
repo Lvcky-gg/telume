@@ -5,8 +5,11 @@
     <top-header class="top-header"></top-header>
     <el-container>
       <el-aside class="sidebar"><sidebar /></el-aside>
-      <el-main><div><map id="map-container"></map></div></el-main>
+      <el-main class="main">
+        <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/>
+      </el-main>
     </el-container>
+    <chat-window class="chat"/>
 
 
 
@@ -15,10 +18,27 @@
 import Map from '../components/Map.vue';
 import Sidebar from '../components/Sidebar.vue';
 import TopHeader from '../components/TopHeader.vue';
+import ChatWindow from "../components/ChatWindow.vue";
 
 </script>
 <style scoped>
+.chat {
+  height:10px;
+  background-color: blue;
+  width:100vw;
+  position: absolute ;
+  top:80%;
+  left: 0;
+  z-index: 100;
+}
+  .main {
+    width: 90vw;
+    height: 90vh;
+    position: absolute;
+    top: 5em;
+    left: 5vw;
 
+  }
   .top-header {
     width: 100vw;
     height: 4vw;
