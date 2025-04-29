@@ -12,9 +12,9 @@ struct AppState {
     ollama:Mutex<Ollama>,
 }
 #[derive(Serialize)]
-struct ChatResponse {
-    message: String
-}
+// struct ChatResponse {
+//     message: String
+// }
 #[derive(Deserialize)]
 struct ChatRequest {
     model: String,
@@ -32,37 +32,37 @@ async  fn get_models(state: State<'_, AppState>) -> Result<Vec<String>, String> 
     Ok(models.iter().map(|m| m.name.clone()).collect())
 }
 
-#[tauri::command]
-async fn chat(
-    request: ChatRequest,
-    window: tauri::Window,
-    state: State<'_, AppState>,
-)->Result<(), String>{
-    let mut client: tokio::sync::MutexGuard<'_, Ollama> = state.ollama.lock().await;
-    let chat_request: ChatMessageRequest = ChatMessageRequest::new(
-        request.model,
-        request.messages,
-    );
-    let mut stream = client
-    .send_chat_messages_stream(chat_request)
-    .await
-    .map_err(|e| format!("Failed to send chat messages: {:?}", e))?;
+// #[tauri::command]
+// async fn chat(
+//     request: ChatRequest,
+//     window: tauri::Window,
+//     state: State<'_, AppState>,
+// )->Result<(), String>{
+//     let mut client: tokio::sync::MutexGuard<'_, Ollama> = state.ollama.lock().await;
+//     let chat_request: ChatMessageRequest = ChatMessageRequest::new(
+//         request.model,
+//         request.messages,
+//     );
+//     let mut stream = client
+//     .send_chat_messages_stream(chat_request)
+//     .await
+//     .map_err(|e| format!("Failed to send chat messages: {:?}", e))?;
 
-    while let Some(response) = stream.next().await {
-        let response = response.map_err(|e| format!("Failed to get response: {:?}", e))?;
-        let chat_response = ChatResponse {
-            message: response.message.content,
-        };
-        window.emit("chat_message", &chat_response).map_err(|e| e.to_string())?;
-    }
-    Ok(())
-}
+//     while let Some(response) = stream.next().await {
+//         let response = response.map_err(|e| format!("Failed to get response: {:?}", e))?;
+//         let chat_response = ChatResponse {
+//             message: response.message.content,
+//         };
+//         window.emit("chat_message", &chat_response).map_err(|e| e.to_string())?;
+//     }
+//     Ok(())
+// }
 fn main() {
     tauri::Builder::default()
         .manage(AppState{
             ollama: Mutex::new(Ollama::default())
         })
-        .invoke_handler(tauri::generate_handler![get_models, chat])
+        .invoke_handler(tauri::generate_handler![get_models])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

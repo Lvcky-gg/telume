@@ -35,8 +35,8 @@ import ChatWindow from "../components/ChatWindow.vue";
     width: 90vw;
     height: 90vh;
     position: absolute;
-    top: 5em;
-    left: 5vw;
+    top: 5.5em;
+    left: 5.5vw;
 
   }
   .top-header {
