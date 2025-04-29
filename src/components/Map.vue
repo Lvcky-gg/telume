@@ -42,7 +42,7 @@ onMounted(() => {
     height: calc(100vh - 8vw);
     left:8vw;
     position: absolute;
-    top: 15%;
+    top: 10%;
 }
 .tool-container {
     position: absolute;
