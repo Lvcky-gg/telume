@@ -9,7 +9,7 @@
         <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/>
       </el-main>
     </el-container>
-    <chat-window class="chat"/>
+    <!-- <chat-window class="chat"/> -->
 
 
 
@@ -32,11 +32,11 @@ import ChatWindow from "../components/ChatWindow.vue";
   z-index: 100;
 }
   .main {
-    width: 90vw;
+    width: 85vw;
     height: 90vh;
     position: absolute;
     top: 5.5em;
-    left: 5.5vw;
+    left: 5.0vw;
 
   }
   .top-header {
