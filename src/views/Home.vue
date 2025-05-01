@@ -25,7 +25,7 @@ const closeChat = () => { chatVisible.value = false; };
 <style scoped>
 
   .main {
-    width: 85vw;
+    width: 95vw;
     height: 90vh;
     position: absolute;
     top: 5.5em;
