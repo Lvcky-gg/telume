@@ -51,11 +51,11 @@ const closeConversion = () => { conversionVisible.value = false; };
     align-items: center;
     justify-content: space-between;
     background-color: #23272a ;
-    border-radius: .4em;
+    /* border-radius: .4em; */
     padding: 1em;
     position: absolute ;
     top: 0;
-    margin:.2vh;
+    /* margin:.2vh; */
     z-index: 1000;
     box-shadow: -5px 5px 20px 5px #000;
 }
