@@ -13,3 +13,10 @@ pub fn mgrs_to_latlon(mgrs: &str) -> (f64, f64) {
     let latlon = LatLon::from_mgrs(&mgrs);
     (latlon.latitude(), latlon.longitude())
 }
+#[tauri::command]
+pub fn latlon_to_utm(lat: f64, lon: f64) -> String {
+    let latlon = LatLon::create(lat, lon).unwrap();
+    let utm = UtmUps::from_latlon(&latlon);
+    utm.to_string()
+}
+
