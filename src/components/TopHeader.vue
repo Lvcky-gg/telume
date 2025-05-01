@@ -4,10 +4,24 @@
         <div class="header-logo">
             <el-avatar :src="elessarImg" alt="Logo" />
             <div class="tools-container">
-              <el-icon><download/></el-icon>
-               <el-icon><compass/></el-icon>
-                <el-icon><document/></el-icon>
+              <!-- <el-icon><download/></el-icon>
+               <el-icon><compass/></el-icon> -->
+                  <el-tooltip
+                        class="box-item"
+                        effect="dark"
+                        content="Coord Conversion"
+                        placement="right-end"
+                        >
+                <el-icon @click="toggleConversionVisible"><location/></el-icon>
+                </el-tooltip>
+                      <el-tooltip
+                        class="box-item"
+                        effect="dark"
+                        content="Telume Chat"
+                        placement="right-end"
+                        >
                 <el-icon @click="toggleChatVisible"><ChatDotRound/></el-icon>
+                </el-tooltip>
             </div>
         </div>
 
@@ -23,16 +37,19 @@ import { defineEmits } from 'vue';
 import elessarImg from '../assets/imgs/Elessar.png';
  import {
 Download,
-    Document,
+    Location,
     Setting,
     ChatDotRound,
     Menu as IconMenu,
     Compass
  } from '@element-plus/icons-vue'
- const emit = defineEmits(['open-chat']);
+ const emit = defineEmits(['open-chat', 'open-conversion']);
 
 const toggleChatVisible = () => {
   emit('open-chat');
+};
+const toggleConversionVisible = () => {
+  emit('open-conversion');
 };
 </script>
 <style lang="scss" scoped>

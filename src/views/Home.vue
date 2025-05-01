@@ -6,12 +6,20 @@ import TopHeader from '../components/TopHeader.vue';
 import ChatWindow from "../components/ChatWindow.vue";
 
 const chatVisible = ref(false);
+const conversionVisible = ref(false);
 const openChat = () => { chatVisible.value = true; };
 const closeChat = () => { chatVisible.value = false; };
+const openConversion = () => {
+  console.log('open')
+  conversionVisible.value = true; };
+const closeConversion = () => { conversionVisible.value = false; };
 </script>
 
 <template>
-  <top-header class="top-header" @open-chat="openChat" />
+  <top-header class="top-header"
+   @open-chat="openChat"
+   @open-conversion="openConversion"
+    />
   <el-container>
     <el-aside class="sidebar"><sidebar /></el-aside>
     <el-main class="main">
@@ -20,6 +28,10 @@ const closeChat = () => { chatVisible.value = false; };
   </el-container>
   <el-dialog destroy-on-close draggable v-model="chatVisible" title="Chat" width="50%" @close="closeChat">
     <ChatWindow />
+  </el-dialog>
+  
+    <el-dialog destroy-on-close draggable v-model="conversionVisible" title="Conversion" width="50%" @close="closeConversion">
+
   </el-dialog>
 </template>
 <style scoped>
