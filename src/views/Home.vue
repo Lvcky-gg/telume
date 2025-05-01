@@ -37,11 +37,11 @@ const closeConversion = () => { conversionVisible.value = false; };
 <style scoped>
 
   .main {
-    width: 95vw;
+    width: 90vw;
     height: 90vh;
     position: absolute;
-    top: 5.5em;
-    left: 5.0vw;
+    top: 4.5em;
+    left: 10vw;
 
   }
   .top-header {
@@ -56,9 +56,11 @@ const closeConversion = () => { conversionVisible.value = false; };
     position: absolute ;
     top: 0;
     margin:.2vh;
+    z-index: 1000;
+    box-shadow: -5px 5px 20px 5px #000;
 }
 .sidebar {
-    width: 5vw;
+    width: 10vw;
     background-color: #23272a ;
     border-radius: .4em;
     padding: 1em;

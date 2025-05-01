@@ -1,12 +1,20 @@
 <template>
-	<div class="flex flex-col items-center w-16 h-full overflow-hidden text-gray-400 bg-gray-900 rounded">
-		<div class="flex flex-col items-center mt-3 border-t border-gray-700">
+
+		<!-- <div class="flex flex-col items-center mt-3 border-t border-gray-700">
 			<a class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="#">
 			<el-icon><plus /></el-icon>
 			</a>
-		</div>
+		</div> -->
+    <el-tabs type="border-card" tabPosition="left"class="sidebar-tabs">
+    <!-- <el-tab-pane label="🛠️"></el-tab-pane> -->
+      <el-tab-pane label="📈">Aanlysis</el-tab-pane>
+      <el-tab-pane label="🧨">Boom</el-tab-pane>
+      <el-tab-pane label="🗺️">Map</el-tab-pane>
+      <el-tab-pane label="🫣">LOS</el-tab-pane>
+      <el-tab-pane label="☢️">Spill</el-tab-pane>
+  </el-tabs>
 
-	</div>
+
  </template>
 
  <script lang="ts" setup>
@@ -27,7 +35,18 @@
  </script>
 
  <style lang="scss" scoped>
+  .sidebar-tabs{
+   width: 100%;
+   height: 100%;
+   background-color: #23272a ;
+   border: none;
+   color: white;
+   font-size: 1.2em;
+   font-weight: bold;
+   margin-top:10%;
+   overflow: hidden;
 
+  }
  .el-menu{
 
    height: 100%;
