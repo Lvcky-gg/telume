@@ -38,10 +38,11 @@ const closeConversion = () => { conversionVisible.value = false; };
 
   .main {
     width: 90vw;
-    height: 90vh;
+    height: 95vh;
     position: absolute;
-    top: 4.5em;
+    top: 3.5em;
     left: 10vw;
+    overflow: hidden;
 
   }
   .top-header {
@@ -62,13 +63,14 @@ const closeConversion = () => { conversionVisible.value = false; };
 .sidebar {
     width: 10vw;
     background-color: #23272a ;
-    border-radius: .4em;
+    /* border-radius: .4em; */
     padding: 1em;
-    position: absolute ;
+    /* position: absolute ;
     top: 4em;
     left: 0;
-    margin:.2em;
-    height: 90vh;
+    margin:.2em; */
+    height: 95vh;
+    overflow: hidden;
 }
 
 

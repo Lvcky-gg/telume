@@ -44,7 +44,6 @@
    font-size: 1.2em;
    font-weight: bold;
    margin-top:10%;
-   overflow: hidden;
 
   }
  .el-menu{
