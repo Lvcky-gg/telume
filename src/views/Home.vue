@@ -26,11 +26,11 @@ const closeConversion = () => { conversionVisible.value = false; };
       <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/>
     </el-main>
   </el-container>
-  <el-dialog destroy-on-close draggable v-model="chatVisible" title="Chat" width="50%" @close="closeChat">
+  <el-dialog destroy-on-close draggable v-model="chatVisible" title="Chat" width="50%" @close="closeChat" >
     <ChatWindow />
   </el-dialog>
-  
-    <el-dialog destroy-on-close draggable v-model="conversionVisible" title="Conversion" width="50%" @close="closeConversion">
+
+    <el-dialog destroy-on-close draggable v-model="conversionVisible" title="Conversion" width="50%" @close="closeConversion" >
 
   </el-dialog>
 </template>
