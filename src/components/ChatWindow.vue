@@ -2,14 +2,13 @@
     <el-row v-for="(response, idx) in responses" :key="idx" :gutter="20" style="margin-bottom: 10px">
       <div>{{ response }}</div>
     </el-row>
-<div>
+<div class="chat-window" >
       <el-input
     v-model="message"
-    style="width: 240px"
     :autosize="{ minRows: 2, maxRows: 4 }"
     type="textarea"
     placeholder="Please input"
-  /><button @click="sendMessage" style="margin-bottom: 20%;">Send</button>
+  /><button @click="sendMessage" >Send</button>
 </div>
 </template>
 
@@ -56,3 +55,35 @@ const sendMessage = async (e:any) => {
 //     }
 // };
 </script>
+<style scoped lang="scss">
+.chat-window {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+height: 100%;
+margin-top:20%;
+width: 100%;
+textarea {
+    width: 240px;
+    height: 100px;
+    resize: none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 14px;
+}
+button {
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    &:hover {
+        background-color: #0056b3;
+    }
+}
+}
+</style>

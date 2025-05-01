@@ -18,20 +18,12 @@ const closeChat = () => { chatVisible.value = false; };
       <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/>
     </el-main>
   </el-container>
-  <el-dialog v-model="chatVisible" title="Chat" width="50%" @close="closeChat">
+  <el-dialog destroy-on-close  v-model="chatVisible" title="Chat" width="50%" @close="closeChat">
     <ChatWindow />
   </el-dialog>
 </template>
 <style scoped>
-.chat {
-  height:10px;
-  background-color: blue;
-  width:100vw;
-  position: absolute ;
-  top:80%;
-  left: 0;
-  z-index: 100;
-}
+
   .main {
     width: 85vw;
     height: 90vh;
