@@ -32,25 +32,26 @@ pub async  fn get_models(state: State<'_, AppState>) -> Result<Vec<String>, Stri
 #[tauri::command]
 pub async fn chat(
     request: ChatRequest,
-    window: tauri::Window,
+    _window: tauri::Window,
     state: State<'_, AppState>,
-)->Result<(), String>{
-    let  client: tokio::sync::MutexGuard<'_, Ollama> = state.ollama.lock().await;
-    let chat_request: ChatMessageRequest = ChatMessageRequest::new(
+) -> Result<ChatResponse, String> {
+    let client = state.ollama.lock().await;
+    let chat_request = ChatMessageRequest::new(
         request.model,
         request.messages,
     );
     let mut stream = client
-    .send_chat_messages_stream(chat_request)
-    .await
-    .map_err(|e| format!("Failed to send chat messages: {:?}", e))?;
+        .send_chat_messages_stream(chat_request)
+        .await
+        .map_err(|e| format!("Failed to send chat messages: {:?}", e))?;
 
+    let mut full_message = String::new();
     while let Some(response) = stream.next().await {
         let response = response.map_err(|e| format!("Failed to get response: {:?}", e))?;
-        let chat_response = ChatResponse {
-            message: response.message.content,
-        };
-        window.emit("chat_message", &chat_response).map_err(|e| e.to_string())?;
+        full_message.push_str(&response.message.content);
     }
-    Ok(())
+
+    Ok(ChatResponse {
+        message: full_message,
+    })
 }

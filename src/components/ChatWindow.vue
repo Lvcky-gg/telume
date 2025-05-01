@@ -27,12 +27,13 @@ const sendMessage = async (e:any) => {
             role: 'user',
             content: message.value,
         };
-        const request = {
-            model: "llama3.2",
-            messages: [userMessage]
-        };
-        const response = await invoke('chat', { request });
-        console.log('Response:', response);
+     const response = await invoke('chat', {
+            request: {
+                model: "llama3:latest",
+                messages: [userMessage]
+            }
+        });
+        console.log(JSON.stringify({response}));
         responses.value = response as string;
 
     } catch (error) {
