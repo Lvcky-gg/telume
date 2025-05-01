@@ -1,43 +1,12 @@
 <template>
+	<div class="flex flex-col items-center w-16 h-full overflow-hidden text-gray-400 bg-gray-900 rounded">
+		<div class="flex flex-col items-center mt-3 border-t border-gray-700">
+			<a class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="#">
+			<el-icon><plus /></el-icon>
+			</a>
+		</div>
 
-   <el-menu
-     default-active="2"
-     class="el-menu-vertical-demo"
-     :collapse="isCollapse"
-     @open="handleOpen"
-     @close="handleClose"
-   >
-     <el-sub-menu index="1">
-       <template #title>
-         <el-icon><plus /></el-icon>
-         <span>Navigator One</span>
-       </template>
-       <el-menu-item-group>
-         <template #title><span>Group One</span></template>
-         <el-menu-item index="1-1">item one</el-menu-item>
-         <el-menu-item index="1-2">item two</el-menu-item>
-       </el-menu-item-group>
-       <el-menu-item-group title="Group Two">
-         <el-menu-item index="1-3">item three</el-menu-item>
-       </el-menu-item-group>
-       <el-sub-menu index="1-4">
-         <template #title><span>item four</span></template>
-         <el-menu-item index="1-4-1">item one</el-menu-item>
-       </el-sub-menu>
-     </el-sub-menu>
-     <!-- <el-menu-item index="2">
-       <el-icon><icon-menu /></el-icon>
-       <template #title>Navigator Two</template>
-     </el-menu-item>
-     <el-menu-item index="3" disabled>
-       <el-icon><document /></el-icon>
-       <template #title>Navigator Three</template>
-     </el-menu-item>
-     <el-menu-item index="4">
-       <el-icon><setting /></el-icon>
-       <template #title>Navigator Four</template>
-     </el-menu-item> -->
-   </el-menu>
+	</div>
  </template>
 
  <script lang="ts" setup>
