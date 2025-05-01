@@ -38,10 +38,10 @@ const closeConversion = () => { conversionVisible.value = false; };
 
   .main {
     width: 90vw;
-    height: 95vh;
+    height: 100vh;
     position: absolute;
-    top: 3.5em;
-    left: 10vw;
+    top: 3em;
+    left: 8.5vw;
     overflow: hidden;
 
   }

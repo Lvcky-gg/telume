@@ -39,7 +39,7 @@ onMounted(() => {
 
 #map {
     width: 100vw;
-    height: 87vh;
+    height: 100vh;
     position: absolute;
 
 }
