@@ -29,7 +29,6 @@ export const createLOS = () => {
     losViewModel = new LineOfSightViewModel({
         view
     });
-
     watch(
         () => losViewModel?.observer,
         (value) => {
