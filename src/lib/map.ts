@@ -9,6 +9,7 @@ import Search from '@arcgis/core/widgets/Search';
 import type Layer  from '@arcgis/core/layers/Layer';
 import type GraphicsLayer from '@arcgis/core/layers/GraphicsLayer';
 import { getWeather } from './weather';
+import process from 'process';
 export interface MapInstance extends Map {}
 export interface SceneViewInstance extends SceneView {}
 export type LosGraphLayerInstance = GraphicsLayer | null;
@@ -52,6 +53,11 @@ export const initMap = (container: string | HTMLDivElement | nullish): void => {
         container,
         map
     });
+    view.environment.lighting = {
+        type: "sun",
+        date: new Date()
+        };
+    view.environment.lighting.directShadowsEnabled = true;
     const searchWidget = new Search({
         view: view,
     });

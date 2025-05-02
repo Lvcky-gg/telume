@@ -15,9 +15,10 @@ interface WeatherEnvironment {
 declare const apiKey: string;
 
 export const getWeather = async (lat: number, lon: number): Promise<void> => {
+    const apiKey = import.meta.env.VITE_WEATHER_ID as string;
 
     return await axios.get<WeatherApiResponse>(`
-        https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&exclude=daily&appid=45792eaff8593140e34250b599bb3408
+        https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&exclude=daily&appid=${apiKey}
     `)
     .then(response => {
         let data = response.data;
