@@ -10,8 +10,6 @@ import type Layer  from '@arcgis/core/layers/Layer';
 import type GraphicsLayer from '@arcgis/core/layers/GraphicsLayer';
 import { getWeather } from './environment';
 
-import Weather from "@arcgis/core/widgets/Weather.js";
-import { get } from 'http';
 
 export interface MapInstance extends Map {}
 export interface SceneViewInstance extends SceneView {}
@@ -40,16 +38,12 @@ export const initMap = (container: string | HTMLDivElement | nullish): void => {
         url: 'https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer'
     });
 
-    // const weatherLayer: FeatureLayer = new FeatureLayer({
-    //     url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/NOAA_METAR_current_wind_speed_direction_v1/FeatureServer',
-    // });
-    // console.log(weatherLayer)
     map = new Map({
         basemap: defaultBasemap,
         ground: {
             layers: [elevationLayer]
         },
-        // layers: [weatherLayer]
+
     });
 
     view = new SceneView({
@@ -69,7 +63,7 @@ export const initMap = (container: string | HTMLDivElement | nullish): void => {
         position: 'top-leading',
         index: 0
     });
-    view.ui.add(new Weather({ view: view }), "bottom-leading");
+
     searchWidget.on("search-complete", (event) => {
 
     if (event.results.length && event.results[0].results.length) {
