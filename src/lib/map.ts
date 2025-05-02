@@ -65,13 +65,22 @@ export const initMap = (container: string | HTMLDivElement | nullish): void => {
         position: 'top-leading',
         index: 0
     });
+//     function updateLightingToLocalTime() {
+//     const center = view.center;
+//     if (!center || center.longitude == null) return;
+//     const utcNow = new Date();
+//     const offsetHours = Math.floor(center.longitude / 2);
+//     const localTime = new Date((utcNow.getTime() + offsetHours * 60 * 60 * 1000));
+//     console.log('localTime', localTime)
+//     if (view.environment.lighting.type === "sun") {
+//         (view.environment.lighting as __esri.SunLighting).date = localTime;
+//     }
+// }
 
-
-//     view.on("click", (e) => {
-//      let lat = e.mapPoint.latitude
-//      let lon = e.mapPoint.longitude
-//      getWeather(lat as number,lon as number)
-//  })
+// view.when(() => {
+//     updateLightingToLocalTime();
+//     view.watch('center', updateLightingToLocalTime);
+// });
 
     when(
         () => view.ready,
