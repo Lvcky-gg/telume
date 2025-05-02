@@ -57,4 +57,12 @@
  .el-icon{
    color: white;
  }
+ .el-tabs{
+    background-color: #23272a!important;
+    height: 100%!important;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+ }
  </style>

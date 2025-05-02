@@ -63,12 +63,6 @@ const closeConversion = () => { conversionVisible.value = false; };
 .sidebar {
     width: 15vw;
     background-color: #23272a ;
-    /* border-radius: .4em; */
-    padding: 1em;
-    /* position: absolute ;
-    top: 4em;
-    left: 0;
-    margin:.2em; */
     z-index: 999;
     height: 95vh;
     overflow: hidden;
