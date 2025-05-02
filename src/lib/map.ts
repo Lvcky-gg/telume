@@ -60,22 +60,29 @@ export const initMap = (container: string | HTMLDivElement | nullish): void => {
     view.environment.lighting.directShadowsEnabled = true;
     const searchWidget = new Search({
         view: view,
+
     });
     view.ui.add(searchWidget, {
         position: 'top-leading',
         index: 0
     });
-//     function updateLightingToLocalTime() {
-//     const center = view.center;
-//     if (!center || center.longitude == null) return;
-//     const utcNow = new Date();
-//     const offsetHours = Math.floor(center.longitude / 2);
-//     const localTime = new Date((utcNow.getTime() + offsetHours * 60 * 60 * 1000));
-//     console.log('localTime', localTime)
-//     if (view.environment.lighting.type === "sun") {
-//         (view.environment.lighting as __esri.SunLighting).date = localTime;
-//     }
-// }
+    searchWidget.on("search-complete", (event) => {
+
+    if (event.results.length && event.results[0].results.length) {
+        const result = event.results[0].results[0];
+        const geometry = result.feature.geometry;
+
+        if(geometry) {
+        if (geometry.type === "point") {
+            const { latitude, longitude } = geometry;
+            if(latitude && longitude) {
+            getWeather(latitude, longitude);
+            }
+        }
+    }
+    }
+});
+
 
 // view.when(() => {
 //     updateLightingToLocalTime();
