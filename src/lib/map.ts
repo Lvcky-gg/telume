@@ -56,7 +56,7 @@ export const initMap = (container: string | HTMLDivElement | nullish): void => {
     });
     view.environment.lighting = {
         type: "sun",
-        date: new Date()
+        // date: new Date()
         };
     view.environment.lighting.directShadowsEnabled = true;
     const searchWidget = new Search({
