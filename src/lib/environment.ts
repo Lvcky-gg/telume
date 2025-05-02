@@ -25,13 +25,13 @@ export const getWeather = async (lat: number, lon: number): Promise<void> => {
     .then(async response => {
         let data = response.data;
         let weather = data.weather[0].main;
-        const timeZone = await getTimeZoneFromPoint(data.coord.lat, data.coord.lon);
+        // const timeZone = await getTimeZoneFromPoint(data.coord.lat, data.coord.lon);
 
 
-        view.environment.lighting ={
-            type: "sun",
-            date: new Date(timeZone as string)
-        };
+        // view.environment.lighting ={
+        //     type: "sun",
+        //     date: new Date(timeZone as string)
+        // };
         switch (weather) {
             case 'Rain':
                 (view.environment.weather as WeatherEnvironment) = {
@@ -64,10 +64,10 @@ export const getWeather = async (lat: number, lon: number): Promise<void> => {
     });
 }
 
-export async function getTimeZoneFromPoint(lat: number , lon: number): Promise<string | null> {
-const url = `https://timeapi.io/api/TimeZone/coordinate?latitude=${lat}&longitude=${lon}`;
-const response = await fetch(url);
-const data = await response.json();
-return data.currentLocalTime;
+// export async function getTimeZoneFromPoint(lat: number , lon: number): Promise<string | null> {
+// const url = `https://timeapi.io/api/TimeZone/coordinate?latitude=${lat}&longitude=${lon}`;
+// const response = await fetch(url);
+// const data = await response.json();
+// return data.currentLocalTime;
 
-}
+// }

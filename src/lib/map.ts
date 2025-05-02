@@ -8,7 +8,7 @@ import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
 import Search from '@arcgis/core/widgets/Search';
 import type Layer  from '@arcgis/core/layers/Layer';
 import type GraphicsLayer from '@arcgis/core/layers/GraphicsLayer';
-import { getWeather, getTimeZoneFromPoint } from './environment';
+import { getWeather } from './environment';
 import { get } from 'http';
 
 export interface MapInstance extends Map {}
@@ -54,10 +54,10 @@ export const initMap = (container: string | HTMLDivElement | nullish): void => {
         container,
         map
     });
-    // view.environment.lighting = {
-    //     type: "sun",
-    //     date: new Date()
-    //     };
+    view.environment.lighting = {
+        type: "sun",
+        date: new Date()
+        };
     view.environment.lighting.directShadowsEnabled = true;
     const searchWidget = new Search({
         view: view,
@@ -85,26 +85,27 @@ export const initMap = (container: string | HTMLDivElement | nullish): void => {
 });
 
 
-view.when(async() => {
+// view.when(async() => {
 
-    if (view.center && view.center.latitude && view.center.longitude) {
-        const timeZone =await getTimeZoneFromPoint(view.center.latitude, view.center.longitude);
-        view.environment.lighting ={
-            type: "sun",
-            date: new Date(timeZone as string)
-    }
+//     if (view.center && view.center.latitude && view.center.longitude) {
+//         const timeZone =await getTimeZoneFromPoint(view.center.latitude, view.center.longitude);
+//         view.environment.lighting ={
+//             type: "sun",
+//             date: new Date(timeZone as string)
+//     }
 
-    view.watch('center', async(center) => {
-        if (center && center.latitude && center.longitude) {
-            const timeZone =await  getTimeZoneFromPoint(center.latitude, center.longitude);
-            view.environment.lighting ={
-            type: "sun",
-            date: new Date(timeZone as string)
-        };
-        }
+//     view.watch('center', async(center) => {
+//         if (center && center.latitude && center.longitude) {
+//             const timeZone =await  getTimeZoneFromPoint(center.latitude, center.longitude);
+//             view.environment.lighting ={
+//             type: "sun",
+//             date: new Date(timeZone as string)
+//         };
+//         }
 
-    });
-});
+//     });
+// }
+// });
 
     when(
         () => view.ready,
