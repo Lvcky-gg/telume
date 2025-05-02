@@ -10,7 +10,7 @@
       <el-tab-pane label="📈">Aanlysis</el-tab-pane>
       <el-tab-pane label="🧨">Boom</el-tab-pane>
       <el-tab-pane label="🗺️">Map</el-tab-pane>
-      <el-tab-pane label="🫣">LOS</el-tab-pane>
+      <el-tab-pane label="🫣"><LineOfSight/></el-tab-pane>
       <el-tab-pane label="☢️">Spill</el-tab-pane>
   </el-tabs>
 
@@ -19,6 +19,7 @@
 
  <script lang="ts" setup>
  import { ref } from 'vue'
+ import LineOfSight from './LineOfSight.vue'
  import {
    Menu as IconMenu,
    Tools,

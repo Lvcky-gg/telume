@@ -38,21 +38,15 @@ onMounted(() => {
 <style lang="css" scoped>
 
 #map {
-    width: 100vw;
+    width: 90vw;
     height: 95vh;
     position: absolute;
 
 }
 /* .tool-container {
-    width: 100vw;
-    height: 87vh;
+  width: 90vw;
+    height: 95vh;
     position: absolute;
-    top:20%;
-    pointer-events: none;
 } */
-.esri-ui-top-left {
-    position: absolute!important;
-    top:20%!important;
-}
 
 </style>

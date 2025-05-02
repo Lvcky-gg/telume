@@ -5,9 +5,10 @@ import {when, watch} from '@arcgis/core/core/reactiveUtils.js';
 import { ref, markRaw } from 'vue';
 import ElevationLayer from '@arcgis/core/layers/ElevationLayer';
 import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
+import Search from '@arcgis/core/widgets/Search';
 import type Layer  from '@arcgis/core/layers/Layer';
 import type GraphicsLayer from '@arcgis/core/layers/GraphicsLayer';
-
+import { getWeather } from './weather';
 export interface MapInstance extends Map {}
 export interface SceneViewInstance extends SceneView {}
 export type LosGraphLayerInstance = GraphicsLayer | null;
@@ -34,17 +35,37 @@ export const initMap = (container: string | HTMLDivElement | nullish): void => {
     const elevationLayer: ElevationLayer = new ElevationLayer({
         url: 'https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer'
     });
+
+    // const weatherLayer: FeatureLayer = new FeatureLayer({
+    //     url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/NOAA_METAR_current_wind_speed_direction_v1/FeatureServer',
+    // });
+    // console.log(weatherLayer)
     map = new Map({
         basemap: defaultBasemap,
         ground: {
             layers: [elevationLayer]
         },
+        // layers: [weatherLayer]
     });
 
     view = new SceneView({
         container,
         map
     });
+    const searchWidget = new Search({
+        view: view,
+    });
+    view.ui.add(searchWidget, {
+        position: 'top-leading',
+        index: 0
+    });
+
+
+//     view.on("click", (e) => {
+//      let lat = e.mapPoint.latitude
+//      let lon = e.mapPoint.longitude
+//      getWeather(lat as number,lon as number)
+//  })
 
     when(
         () => view.ready,

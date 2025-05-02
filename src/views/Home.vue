@@ -37,11 +37,11 @@ const closeConversion = () => { conversionVisible.value = false; };
 <style scoped>
 
   .main {
-    width: 90vw;
+    width: 85vw;
     height: 98vh;
     position: absolute;
-    top: 2.5em;
-    left: 8.5vw;
+    top: 3.5em;
+    left: 15.5vw;
     overflow: hidden;
 
   }
@@ -52,16 +52,16 @@ const closeConversion = () => { conversionVisible.value = false; };
     align-items: center;
     justify-content: space-between;
     background-color: #23272a ;
-    /* border-radius: .4em; */
+
     padding: 1em;
     position: absolute ;
     top: 0;
-    /* margin:.2vh; */
+
     z-index: 1000;
     box-shadow: -5px 5px 20px 5px #000;
 }
 .sidebar {
-    width: 10vw;
+    width: 15vw;
     background-color: #23272a ;
     /* border-radius: .4em; */
     padding: 1em;
@@ -69,6 +69,7 @@ const closeConversion = () => { conversionVisible.value = false; };
     top: 4em;
     left: 0;
     margin:.2em; */
+    z-index: 999;
     height: 95vh;
     overflow: hidden;
 }

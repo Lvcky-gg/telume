@@ -12,3 +12,6 @@
 ### Should be able to interface with TAK server
 
 # Next project will be a plugin for CIVTAK & COLTAK that enables 3d viewing of data from here in TAK in VR
+https://medium.com/@seremetonurhan/display-real-time-weather-information-on-your-web-scene-maps-with-arcgis-javascript-sdk-32cc796c667c
+factors = 50, 197, 328, mfd-v, mfd-h
+
