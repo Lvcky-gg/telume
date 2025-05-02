@@ -2,7 +2,7 @@
 
 
         <div class="header-logo">
-            <el-avatar :src="elessarImg" alt="Logo" />
+            <el-avatar :src="elessarImg" alt="Logo":size="50" />
             <div class="tools-container">
               <!-- <el-icon><download/></el-icon>
                <el-icon><compass/></el-icon> -->
