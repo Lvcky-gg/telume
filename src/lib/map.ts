@@ -9,6 +9,8 @@ import Search from '@arcgis/core/widgets/Search';
 import type Layer  from '@arcgis/core/layers/Layer';
 import type GraphicsLayer from '@arcgis/core/layers/GraphicsLayer';
 import { getWeather } from './environment';
+
+import Weather from "@arcgis/core/widgets/Weather.js";
 import { get } from 'http';
 
 export interface MapInstance extends Map {}
@@ -67,6 +69,7 @@ export const initMap = (container: string | HTMLDivElement | nullish): void => {
         position: 'top-leading',
         index: 0
     });
+    view.ui.add(new Weather({ view: view }), "bottom-leading");
     searchWidget.on("search-complete", (event) => {
 
     if (event.results.length && event.results[0].results.length) {
