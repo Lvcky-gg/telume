@@ -21,15 +21,15 @@ export let losGraphLayer: LosGraphLayerInstance;
 export const mapLayers = ref<Record<string, { title: string; id: string; layer: any }>>({});
 export const mapReady = ref(false);
 
-interface InitMapOptions {
-    container: string | HTMLElement;
-}
+// interface InitMapOptions {
+//     container: string | HTMLElement;
+// }
 
-interface MapLayerInfo {
-    title: string;
-    id: string;
-    layer: any;
-}
+// interface MapLayerInfo {
+//     title: string;
+//     id: string;
+//     layer: any;
+// }
 
 export const initMap = (container: string | HTMLDivElement | nullish): void => {
 
@@ -108,22 +108,6 @@ export const initMap = (container: string | HTMLDivElement | nullish): void => {
         () => view.ready,
         () => {
             mapReady.value = true;
-        }
-    );
-    const validTypes: string[] = ['csv', 'graphic', 'geojson', 'kml', 'layer', 'mapImageLayer', 'ogcFeatureLayer', 'sceneLayer', 'tile', 'vectorTile'];
-    watch(
-        (): Layer[] => view.map.allLayers.toArray().filter((layer: Layer) => validTypes.includes(layer.type)),
-        (layers: Layer[]) => {
-            if(layers.length){
-                for(const layer of layers){
-                    if(layer.title === 'SVM Internal') continue;
-                    mapLayers.value[layer.id] = {
-                        title: layer.title,
-                        id: layer.id,
-                        layer: markRaw(layer),
-                    } as MapLayerInfo;
-                }
-            }
         }
     );
 }

@@ -49,6 +49,7 @@ import { ref } from 'vue';
 import { defineEmits } from 'vue';
 import elessarImg from '../assets/imgs/Elessar.png';
 import Weather from "@arcgis/core/widgets/Weather.js";
+import Search from "@arcgis/core/widgets/Search.js";
 import { view }from '../lib/map.js';
  import {
 Download,
@@ -59,9 +60,15 @@ Download,
     Menu as IconMenu,
     Compass
  } from '@element-plus/icons-vue'
+
 const emit = defineEmits(['open-chat', 'open-conversion']);
 const weather = ref(false);
+const search = ref(false);
 let weatherWidget: any = null;
+      const searchWidget = new Search({
+        view: view,
+
+    });
 
 const toggleChatVisible = () => {
   emit('open-chat');
@@ -82,6 +89,30 @@ const toggleWeatherVisible = () => {
     view.ui.add(weatherWidget, "bottom-leading");
   }
 };
+const toggleGeocode = () => {
+
+    view.ui.add(searchWidget, {
+        position: 'top-leading',
+        index: 0
+    });
+
+}
+   searchWidget.on("search-complete", (event) => {
+
+    if (event.results.length && event.results[0].results.length) {
+        const result = event.results[0].results[0];
+        const geometry = result.feature.geometry;
+
+        if(geometry) {
+        if (geometry.type === "point") {
+            const { latitude, longitude } = geometry;
+            if(latitude && longitude) {
+            getWeather(latitude, longitude);
+            }
+        }
+    }
+    }
+});
 // view.ui.add(new Weather({ view: view }), "bottom-leading");
 </script>
 <style lang="scss" scoped>
