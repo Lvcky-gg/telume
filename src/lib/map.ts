@@ -1,8 +1,8 @@
 import Map from '@arcgis/core/Map';
 import SceneView from '@arcgis/core/views/SceneView';
 
-import {when, watch} from '@arcgis/core/core/reactiveUtils.js';
-import { ref, markRaw } from 'vue';
+import {when} from '@arcgis/core/core/reactiveUtils.js';
+import { ref } from 'vue';
 import ElevationLayer from '@arcgis/core/layers/ElevationLayer';
 import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
 import Search from '@arcgis/core/widgets/Search';

@@ -1,5 +1,5 @@
 use futures_util::StreamExt;
-use ollama_rs::{generation::chat::{request::{ ChatMessageRequest}, ChatMessage}, Ollama};
+use ollama_rs::{generation::chat::{request::ChatMessageRequest, ChatMessage}, Ollama};
 use tauri::State;
 use tokio::sync::Mutex;
 use serde::{Serialize, Deserialize};
