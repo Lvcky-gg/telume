@@ -38,8 +38,8 @@ onMounted(() => {
 <style lang="css" scoped>
 
 #map {
-    width: 90vw;
-    height: 90vh;
+    width: 90%;
+    height: 90%;
     position: absolute;
 
 }

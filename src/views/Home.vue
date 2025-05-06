@@ -4,6 +4,7 @@ import Map from '../components/Map.vue';
 import Sidebar from '../components/Sidebar.vue';
 import TopHeader from '../components/TopHeader.vue';
 import ChatWindow from "../components/ChatWindow.vue";
+import { GridLayout, GridItem } from 'vue-grid-layout';
 
 const chatVisible = ref(false);
 const conversionVisible = ref(false);
@@ -13,6 +14,13 @@ const openConversion = () => {
   console.log('open')
   conversionVisible.value = true; };
 const closeConversion = () => { conversionVisible.value = false; };
+
+const layout = ref([
+  { i: 'a', x: 0, y: 0, w: 4, h: 2 },
+  { i: 'b', x: 4, y: 0, w: 4, h: 2 },
+  { i: 'c', x: 8, y: 0, w: 4, h: 2 },
+]);
+
 </script>
 
 <template>
@@ -21,10 +29,23 @@ const closeConversion = () => { conversionVisible.value = false; };
    @open-conversion="openConversion"
     />
   <el-container>
+
     <el-aside class="sidebar"><sidebar /></el-aside>
-    <el-main class="main">
-      <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/>
-    </el-main>
+<el-main class="main">
+  <VueGridLayout class="grid-layout"
+    :col-num="12"
+    :row-height="30"
+    :isDraggable="true"
+    :isResizable="true"
+  >
+    <VueGridItem :i="'a'">
+
+      <div style="width:90%;height:90%;">
+        <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/>
+      </div>
+    </VueGridItem>
+  </VueGridLayout>
+</el-main>
   </el-container>
   <el-dialog destroy-on-close draggable v-model="chatVisible" title="Chat" width="50%" @close="closeChat" >
     <ChatWindow />
