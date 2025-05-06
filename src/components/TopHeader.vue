@@ -44,9 +44,7 @@
 
 
 <script setup lang="ts">
-// import Avatar from 'primevue/avatar';
 import { ref } from 'vue';
-import { defineEmits } from 'vue';
 import elessarImg from '../assets/imgs/Elessar2.png';
 import Weather from "@arcgis/core/widgets/Weather.js";
 import Search from "@arcgis/core/widgets/Search.js";
