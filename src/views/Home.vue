@@ -4,10 +4,11 @@ import Map from '../components/Map.vue';
 import Sidebar from '../components/Sidebar.vue';
 import TopHeader from '../components/TopHeader.vue';
 import ChatWindow from "../components/ChatWindow.vue";
-import { GridLayout, GridItem } from 'vue-grid-layout';
+import { GridLayout, GridItem } from 'vue3-grid-layout';
 
 const chatVisible = ref(false);
 const conversionVisible = ref(false);
+const activeName = ref('first')
 const openChat = () => { chatVisible.value = true; };
 const closeChat = () => { chatVisible.value = false; };
 const openConversion = () => {
@@ -16,9 +17,7 @@ const openConversion = () => {
 const closeConversion = () => { conversionVisible.value = false; };
 
 const layout = ref([
-  { i: 'a', x: 0, y: 0, w: 4, h: 2 },
-  { i: 'b', x: 4, y: 0, w: 4, h: 2 },
-  { i: 'c', x: 8, y: 0, w: 4, h: 2 },
+  { i: 'a', x: 0, y: 0, w: 12, h: 50 },
 ]);
 
 </script>
@@ -29,32 +28,32 @@ const layout = ref([
    @open-conversion="openConversion"
     />
   <el-container>
-
-    <el-aside class="sidebar"><sidebar /></el-aside>
-<el-main class="main">
-  <VueGridLayout class="grid-layout"
-    :col-num="12"
-    :row-height="30"
-    :isDraggable="true"
-    :isResizable="true"
-  >
-    <VueGridItem :i="'a'">
-
-      <div style="width:90%;height:90%;">
-        <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/>
-      </div>
-    </VueGridItem>
-  </VueGridLayout>
-</el-main>
+    <el-aside class="sidebar"><Sidebar /></el-aside>
+    <el-main class="main">
+      <grid-layout
+        class="grid-layout"
+        :layout="layout"
+        :col-num="12"
+        :row-height="30"
+        :isDraggable="true"
+        :isResizable="true"
+      >
+        <grid-item v-for="item in layout" :key="item.i" v-bind="item">
+          <div class="map-tabs-container">
+            <el-tabs tabPosition="top" v-model="activeName" class="full-size-tabs">
+              <el-tab-pane label="Map" name="first" class="full-size-tab-pane">
+                <div class="map-container">
+                  <Map :defaultBasemap="'Imagery'" :defaultGround="'world-elevation'"/>
+                </div>
+              </el-tab-pane>
+            </el-tabs>
+          </div>
+        </grid-item>
+      </grid-layout>
+    </el-main>
   </el-container>
-  <el-dialog destroy-on-close draggable v-model="chatVisible" title="Chat" width="50%" @close="closeChat" >
-    <ChatWindow />
-  </el-dialog>
-
-    <el-dialog destroy-on-close draggable v-model="conversionVisible" title="Conversion" width="50%" @close="closeConversion" >
-
-  </el-dialog>
 </template>
+
 <style scoped>
 
   .main {
@@ -66,6 +65,21 @@ const layout = ref([
     overflow: hidden;
 
   }
+  .grid-layout {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+.map-tabs-container,
+.full-size-tabs,
+.full-size-tab-pane,
+.map-container {
+  width: 100%;
+  height: 100%;
+  min-height: 300px; /* fallback for very small screens */
+}
   .top-header {
     width: 100vw;
     height: 4vh;
